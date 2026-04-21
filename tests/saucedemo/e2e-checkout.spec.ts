@@ -1,0 +1,57 @@
+import{test, expect} from '@playwright/test';
+
+import{LoginPage} from '../../page-objects/saucedemo/LoginPage.ts';
+import{ProductsPage} from '../../page-objects/saucedemo/ProductsPage';
+import{CartPage} from '../../page-objects/saucedemo/CartPage';
+import{CheckoutPage} from '../../page-objects/saucedemo/CheckoutPage';
+
+test.describe('SauceDemo End-to-End Checkout Flow', () => {
+    test('complete checkout flow with multiple products', async({page}) => {
+
+        //step 1: Login
+        const loginPage = new LoginPage(page);
+        await loginPage.goto();
+        await loginPage.login('standard_user', 'secret_sauce');
+
+        //step 2: Add products to cart
+
+        const productsPage = new ProductsPage(page);
+        await productsPage.addProductToCartByName('Sauce Labs Backpack');
+        await productsPage.addProductToCartByName('Sauce Labs Bike Light');
+
+        //Verify cart count
+        const cartCount = await productsPage.getCartItemCount();
+        expect(cartCount).toBe('2');
+
+        //Step 3: Go to cart
+        await productsPage.clickShoppingCart();
+
+        //Step4: Verify cart contents
+        const cartPage = new CartPage(page);
+        const itemCount = cartPage.getCartItemCount();
+        expect(itemCount).toBe('2');
+
+        const itemNames = cartPage.getCartItemNames();
+        expect(itemNames).toContain('Sauce Labs Backpack');
+        expect(itemNames).toContain('Sauce Labs Bike Light');
+
+        //Step 5: Proceed to checkout
+        await cartPage.clickCheckout();
+
+        //Step 6: Fill shipping information
+        const checkoutPage = new CheckoutPage(page);
+        await checkoutPage.fillShippingInformation('John', 'Doe', '12345');
+        await checkoutPage.clickContinue();
+
+        //Step 7: Complete order
+        await checkoutPage.clickContinue();
+
+        //Step ; Verify order completion
+        const isComplete = await checkoutPage.isOrderComplete();
+        expect(isComplete).toBeTruthy();
+
+        const completeMessage = await checkoutPage.getCompleteMessage();
+        expect(completeMessage).toContain('Thank you for your order');
+    });
+});
+
