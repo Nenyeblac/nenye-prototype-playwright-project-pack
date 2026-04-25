@@ -3,6 +3,7 @@
 import { test, expect } from '@playwright/test';
  
 import { LoginPage } from '../../page-objects/saucedemo/LoginPage';
+import { ProductsPage } from '../../page-objects/saucedemo/ProductsPage';
  
 test.describe('SauceDemo Login Tests', () => {
  
@@ -67,6 +68,16 @@ await loginPage.clearError();
 await expect(loginPage.errorMessage).not.toBeVisible();
  
 });
+
+test.afterEach(async({page}, testInfo) => {
+    if(testInfo.status !== testInfo.expectedStatus){
+        const screenshot = await page.screenshot();
+        await testInfo.attach('screenshot',{
+            body: screenshot,
+            contentType: 'image/png'
+        });
+    }
+})
  
 });
 
@@ -89,52 +100,6 @@ await expect(loginPage.errorMessage).not.toBeVisible();
 
 // await expect(page.getByText('Products')).toBeVisible();
 // });
-
-
-// //Variable types
-// const username: string = 'standard_user';
-// const price: number = 29.99;
-// const inStock: boolean = true;
-
-// //Array types
-// const users: string[] = ['standard_user', 'locked_user', 'problem_user'];
-// const prices: number[] = [9.99, 29.99, 49.99];
-
-// //Object types
-// interface TestUser {
-
-// username: string;
-// password: string;
-// role: string;
-
-// }
-
-// const testUser: TestUser = {
-//     username: 'standard_user',
-//     password: 'secret_sauce',
-//     role: 'customer'
-// };
-
-// //Function types
-
-// //Function with typed parametres and return type
-// async function loginToSauceDemo (
-//     page: Page,
-//     username: string,
-//     password: string
-// ): Promise<void>{
-// await page.goto('https://www.saucedemo.com/');
-// await page.locator('#user-name').fill(username);
-// await page.locator('#password').fill(password);
-// await page.locator('#login-button').click();
-// }
-
-// //Function returning a value
-// function getProductPrice(priceText: string): number{
-//     return parseFloat(priceText.replace('$', ''))
-// }
-
-
 
 
 // test('login with test data helper', async ({page}) => {

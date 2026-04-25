@@ -19,12 +19,15 @@ super(page);
  
 // Locators based on actual SauceDemo elements
  
+//Username input - ID selector (most reliable for this site)
 this.usernameInput = page.locator('#user-name');
  
 this.passwordInput = page.locator('#password');
  
 this.loginButton = page.locator('#login-button');
  
+//Error message - uses data-test attribute
+//This selector is stable and won't change
 this.errorMessage = page.locator('[data-test="error"]');
  
 this.errorButton = page.locator('.error-button');

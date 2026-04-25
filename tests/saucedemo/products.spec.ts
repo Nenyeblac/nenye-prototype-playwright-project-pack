@@ -1,6 +1,7 @@
 import {test, expect} from '@playwright/test';
 import { LoginPage } from '../../page-objects/saucedemo/LoginPage';
 import { ProductsPage } from '../../page-objects/saucedemo/ProductsPage';
+import { SortOption } from '../../utils/saucedemo-data';
 
 test.describe('SauceDemo Products Tests', () => {
     
@@ -50,7 +51,7 @@ test.describe('SauceDemo Products Tests', () => {
 
     test('can sort products by name A-Z', async({page}) => {
         const productsPage = new ProductsPage(page);
-        await productsPage.sortBy('az');
+        await productsPage.sortProducts(SortOption.NAME_ASC);
 
         const productName = await productsPage.getProductNames();
         expect(productName[0]).toBe('Sauce Labs Backpack');
@@ -58,7 +59,7 @@ test.describe('SauceDemo Products Tests', () => {
 
     test('can sort products by price low to high', async({page}) => {
         const productsPage = new ProductsPage(page);
-        await productsPage.sortBy('lohi');
+        await productsPage.sortProducts(SortOption.PRICE_LOW_HIGH);
 
         const firtsProductPrice = await productsPage.getProductPrice('Sauce Labs Onesie');
         expect(firtsProductPrice).toBe('$7.99');

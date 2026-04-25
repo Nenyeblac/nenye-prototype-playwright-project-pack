@@ -1,4 +1,6 @@
 import { Page, Locator } from "@playwright/test";
+import { SortOption } from "../../utils/saucedemo-data";
+import { count } from "node:console";
 
 export class ProductsPage {
 
@@ -16,6 +18,9 @@ export class ProductsPage {
 
         this.pageTitle = page.locator('.title');
         this.inventoryItems = page.locator('.inventory_item');
+
+        //Shopping cart badge - shows number of items in cart
+        //returns empty if no items ()
         this.shoppingCartBadge = page.locator('.shopping_cart_badge');
         this.shoppingCartLink = page.locator('.shopping_cart_link');
         this.sortDropDown = page.locator('[data-test="product_sort_container"]');
@@ -63,7 +68,7 @@ export class ProductsPage {
         await this.shoppingCartLink.click();
     }
 
-    async sortBy (option: string){
+    async sortProducts (option: SortOption){
         await this.sortDropDown.selectOption(option);
     }
 
@@ -79,8 +84,29 @@ export class ProductsPage {
         return await removeButton.isVisible();
     }
 
+    async isProductAvailable(productName: string): Promise<boolean>{
+        const product = this.page.locator('.inventory_item', {hasText: productName});
+        const addButton = product.locator('button:has-text("`add to cart")');
+        return await addButton.isVisible();
+    }
+
     async goToCart(){
         await this.shoppingCartLink.click();
+    }
+
+    //Wait methods for dynamic content
+    async waitForProductsToLoad(){
+        await this.page.waitForSelector('.inventory_item', {
+            state: 'visible',
+            timeout: 10000
+        });
+    }
+
+    async waitForCartBadgeUpdate(expectedCount: string){
+        await this.page.waitForFunction((count) => {
+            const badge = document.querySelector('.shopping_cart_badge');
+            return badge?.textContent === count;
+        }, expectedCount);
     }
 
 }
