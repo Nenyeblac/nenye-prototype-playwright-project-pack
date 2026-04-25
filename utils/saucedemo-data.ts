@@ -4,10 +4,8 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-export const getTestUser = (env: string = 'saucedemo')=>{
+export const SauceDemoUsers = {
 
-    const users = {
-        saucedemo:{
         standard: {
         username: process.env.SAUCEDEMO_STANDARD_USER || 'standard_user',
         password: process.env.SAUCEDEMO_PASSWORD || 'secret_sauce',
@@ -22,29 +20,7 @@ export const getTestUser = (env: string = 'saucedemo')=>{
         username: process.env.SAUCEDEMO_STANDARD_USER || 'problem_user',
         password: process.env.SAUCEDEMO_PASSWORD || 'secret_sauce',
         }
-    },
-        todomcv:{
-        standard: {
-        username: process.env.TODOMCV_STANDARD_USER || 'standard_user',
-        password: process.env.TODOMCV_PASSWORD || 'secret_sauce',
-        },
-
-        locked: {
-        username: process.env.TODOMCV_STANDARD_USER || 'locked_out_user',
-        password: process.env.TODOMCV_PASSWORD || 'secret_sauce',
-        },
-
-        problem: {
-        username: process.env.TODOMCV_STANDARD_USER || 'problem_user',
-        password: process.env.TODOMCV_PASSWORD || 'secret_sauce',
-        }
-    }
-        
-    };
-
-    return users;
-   
-};
+    };  
 
 export const TestURLs = {
 
@@ -59,3 +35,10 @@ export const APIEndPoints = {
     fakeStoreAPI: process.env.FAKESTORE_API || 'https://fakestoreapi.com',
     reqres: process.env.REQRES_API || 'https://reqres.in/api'
 };
+
+export enum SortOption {
+    NAME_ASC = 'az',
+    NAME_DESC = 'za',
+    PRICE_LOW_HIGH = 'lohi',
+    PRICE_HI_LOW = 'hilo'
+}
