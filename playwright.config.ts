@@ -93,6 +93,37 @@ export default defineConfig({
        use: { ...devices['iPhone 12'] },
      },
 
+
+     // Setup project for auth.setup
+     { name: 'setup', testMatch: /.*\.setup\.ts/},
+     //authenticated states
+     {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: 'playwright/.auth/user.json'
+      },
+      dependencies: ['setup'],
+     },
+
+     // Set up project for auth-setup-multiple.setup
+     {name: 'setup', testMatch: /.*\.setup\.ts/},
+     {
+      name: 'standard-user',
+      use: {storageState: 'playwright/.auth/standard.json'},
+      dependencies: ['setup'],
+      testMatch: /.*standard.*\.spec\.ts/,
+     },
+
+     {
+      name: 'performance-user',
+      use: {storageState: 'playwright/.auth/performance.json'},
+      dependencies: ['setup'],
+      testMatch: /.*performance.*\.spec\.ts/,
+     },
+
+
+
     /* Test against branded browsers. */
     // {
     //   name: 'Microsoft Edge',
