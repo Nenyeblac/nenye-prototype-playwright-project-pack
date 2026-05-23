@@ -15,6 +15,8 @@ import { CheckoutDataBuilder } from '../../../utils/test-data-builder';
 
 test('successful login redirects to products page',async({page}) => {
 
+    //How to understand the steps in testing (triple A and V: Arrange, Act, Assert and Verify)
+
     //ARRANGE - Set up the test
     const loginPage = new LoginPage(page);
     await loginPage.goto();
@@ -319,9 +321,6 @@ test.describe('SauceDemo Checkout with Faker', () => {
     });
    
 });
-
-
-
 
 
 
