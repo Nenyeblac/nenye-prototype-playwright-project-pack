@@ -1,7 +1,7 @@
 
 import {test as setup, expect} from '@playwright/test';
-import { LoginPage } from '../page-objects/saucedemo/LoginPage';
-import { SauceDemoUsers } from '../utils/saucedemo-data';
+import { LoginPage } from '../../page-objects/saucedemo/LoginPage';
+import { SauceDemoUsers } from '../../utils/saucedemo-data';
 
 const authFile = 'playwright/.auth/user.json';
 

@@ -1,9 +1,10 @@
 
 import{ test, expect} from '@playwright/test';
 
-test.describe.configure({mode: 'parallel'});
+
 
 test.describe('Parallel Safe Tests', () => {
+    test.describe.configure({mode: 'parallel'});
  
 // These tests can run in parallel
  
@@ -21,9 +22,10 @@ test('test 2', async ({ page }) => {
  
 });
 
-test.describe.configure({mode: 'serial'});
+
 
 test.describe('Serial Tests', () => {
+    test.describe.configure({mode: 'serial'});
  
 // These tests run one after another
  

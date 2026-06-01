@@ -173,6 +173,7 @@ await expect(page.locator('.inventory_item')).toHaveCount(6);
 const count = await page.locator('.cart_item').count();
 expect(count).toBeGreaterThan(0);
 
+
 //5. Attribute Assertions
 
 //Has attribute
@@ -200,6 +201,7 @@ await expect(page.locator('#term')).toBeChecked();
 await expect(page.locator('#user-name')).toBeEditable();
 
 })
+
 
 //Soft Assertions - work best with locator-based expects
 //continue test execution even if assertion fails:

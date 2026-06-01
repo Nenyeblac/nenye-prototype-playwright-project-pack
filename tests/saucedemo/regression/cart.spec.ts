@@ -1,7 +1,7 @@
 import {test, expect } from "@playwright/test"
-import{LoginPage} from '../../../page-objects/saucedemo/LoginPage.ts';
-import { ProductsPage } from "../../../page-objects/saucedemo/ProductsPage.ts";
-import { CartPage } from "../../../page-objects/saucedemo/CartPage.ts";
+import{LoginPage} from '../../../page-objects/saucedemo/LoginPage';
+import { ProductsPage } from "../../../page-objects/saucedemo/ProductsPage";
+import { CartPage } from '../../../page-objects/saucedemo/CartPage';
 
 
 //Cart Item Display Tests
@@ -36,14 +36,14 @@ test.describe('Cart Item Display Details', () => {
         const tshirtDetails = await cartPage.getCartItemDetails('Sauce Labs Bolt T-Shirt');
 
         //Verify quantities
-        expect(backPackDetails).toBe(1)
-        expect(bikeLightDetails).toBe(1);
-        expect(tshirtDetails).toBe(1);
+        expect(backPackDetails.quantity).toBe(1)
+        expect(bikeLightDetails.quantity).toBe(1);
+        expect(tshirtDetails.quantity).toBe(1);
 
         //verify names match expected
-        expect(backPackDetails).toBe('Sauce Labs Backpack');
-        expect(bikeLightDetails).toBe('Sauce Labs Bike Light');
-        expect(tshirtDetails).toBe('Sauce Labs Bolt T-Shirt');
+        expect(backPackDetails.name).toBe('Sauce Labs Backpack');
+        expect(bikeLightDetails.name).toBe('Sauce Labs Bike Light');
+        expect(tshirtDetails.name).toBe('Sauce Labs Bolt T-Shirt');
     });
 
     test('should display product descriptions in cart', async({page}) => {
@@ -52,16 +52,17 @@ test.describe('Cart Item Display Details', () => {
         await productsPage.clickShoppingCart();
 
         //get descriptions from cart
-        const backPackDescription = cartPage.getProductDescription('Sauce Labs Backpack');
-        const onesieDescription = cartPage.getProductDescription('Sauce Labs Onesie');
+        const backPackDescription = await cartPage.getProductDescription('Sauce Labs Backpack');
+        const onesieDescription = await cartPage.getProductDescription('Sauce Labs Onesie');
 
         //verify descriptions exist and have content
         expect(backPackDescription).toBeTruthy();
-        expect((await backPackDescription).length).toBeGreaterThan(0);
-        expect(backPackDescription).toContain('carry.allTheThings()');
+        expect(( backPackDescription).length).toBeGreaterThan(0);
+        expect( backPackDescription).toContain('carry.allTheThings()');
+
         expect(onesieDescription).toBeTruthy();
-        expect((await onesieDescription).length).toBeGreaterThan(0);
-        expect(onesieDescription).toContain('Rin snap');
+        expect(( onesieDescription).length).toBeGreaterThan(0);
+        expect(onesieDescription).toContain('Rib snap');
     });
     
 });
