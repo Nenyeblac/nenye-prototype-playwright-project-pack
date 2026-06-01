@@ -1,6 +1,6 @@
 import {test as setup} from '@playwright/test';
-import { LoginPage } from '../page-objects/saucedemo/LoginPage';;
-import { SauceDemoUsers } from '../utils/saucedemo-data';
+import { LoginPage } from '../../page-objects/saucedemo/LoginPage';;
+import { SauceDemoUsers } from '../../utils/saucedemo-data';
 
 // Standard user auth
 

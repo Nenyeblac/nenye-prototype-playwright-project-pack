@@ -24,10 +24,26 @@ export default defineConfig({
   workers: process.env.CI ? 1 : 4,
 
   // Reporter to use. See https://playwright.dev/docs/test-reporters 
+
+  //configuring html reporter by Chinenye
   reporter: [
-    ['html'],
-    ['list'],
-    ['json', { outputFile: 'test-result.json'}]
+  //for custom reporter
+  ['./reporters/custom-reporter.ts'],
+  
+  //for allure reporter
+  ['allure-playwright', {
+    detail: true,
+    outputFolder: 'allure-results',
+    suiteTitle: true,
+  }],
+  
+  ['html', {
+    outputFolder: 'playwright-report',
+    open: 'never' //'always' || 'never' || 'on-failure'
+  }],
+    ['list',], //Console output
+    ['json', { outputFile: 'test-results.json'}],
+    ['junit', {outputFile: 'test-results/junit.xml'}],
   ],
 
   //Global test timeout
@@ -45,13 +61,13 @@ export default defineConfig({
     baseURL: process.env.BASE_URL,
 
     // Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer 
-    trace: 'on-first-retry',
+    trace: 'on-first-retry', // 'off' | 'on' | 'retain-on-failure' | 'on-first-retry'
 
     // Take screenshot on failure
-    screenshot: 'only-on-failure',
+    screenshot: 'only-on-failure', //'off' | 'on' | 'only-on-failure'
 
     // Record video on failure
-    video: 'retain-on-failure',
+    video: 'retain-on-failure', // 'off' | 'on' | 'retain-on-failure' | 'on-first-retry'
 
     // Browser viewport
     viewport: {width: 1280, height:720},
@@ -95,29 +111,37 @@ export default defineConfig({
 
 
      // Setup project for auth.setup
-     { name: 'setup', testMatch: /.*\.setup\.ts/},
-     //authenticated states
-     {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-        storageState: 'playwright/.auth/user.json'
-      },
-      dependencies: ['setup'],
-     },
+    //  { name: 'setup', testMatch: /.*\.setup\.ts/},
+
+    //  //authenticated states
+    //  {
+    //   name: 'authenticated-chromium',
+    //   use: {
+    //     ...devices['Desktop Chrome'],
+    //     storageState: 'playwright/.auth/user.json'
+    //   },
+    //   dependencies: ['setup'],
+    //  },
 
      // Set up project for auth-setup-multiple.setup
      {name: 'setup', testMatch: /.*\.setup\.ts/},
+     
      {
       name: 'standard-user',
-      use: {storageState: 'playwright/.auth/standard.json'},
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: 'playwright/.auth/standard.json'
+      },
       dependencies: ['setup'],
       testMatch: /.*standard.*\.spec\.ts/,
      },
 
      {
       name: 'performance-user',
-      use: {storageState: 'playwright/.auth/performance.json'},
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: 'playwright/.auth/performance.json'
+      },
       dependencies: ['setup'],
       testMatch: /.*performance.*\.spec\.ts/,
      },

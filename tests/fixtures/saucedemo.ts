@@ -1,8 +1,8 @@
 //Reusable setup codes
 
 import {test as base} from '@playwright/test';
-import {LoginPage} from '../../page-objects/saucedemo/LoginPage.ts';
-import {ProductsPage} from '../../page-objects/saucedemo/ProductsPage.ts';
+import {LoginPage} from '../../page-objects/saucedemo/LoginPage';
+import {ProductsPage} from '../../page-objects/saucedemo/ProductsPage';
 
 type SauceDemoFixtures = {
 

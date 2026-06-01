@@ -1,5 +1,5 @@
 import {test, expect} from '@playwright/test';
-import{LoginPage} from '../../page-objects/saucedemo/LoginPage.ts'
+import{LoginPage} from '../../page-objects/saucedemo/LoginPage';
 
 //Basic screenshot testing
 test('visual test - login page', async({page}) => {
@@ -38,3 +38,6 @@ test('visual test with tolerance', async({page}) => {
         animations: 'disabled' //Disable animations
     });
 });
+
+
+
