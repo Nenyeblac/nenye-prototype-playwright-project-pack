@@ -1,7 +1,7 @@
 {
-  "name": "my-first-playwright-project",
+  "name": "my-prototype-playwright-project",
   "version": "1.0.0",
-  "description": "Learning Playwright basics",
+  "description": "playwright-prototype-for-reference",
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
