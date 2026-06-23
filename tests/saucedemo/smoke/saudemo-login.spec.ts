@@ -3,6 +3,8 @@
 import { test, expect } from '@playwright/test';
  
 import { LoginPage } from '../../../page-objects/saucedemo/LoginPage';
+import { SauceDemoUsers } from '../../../utils/saucedemo-data';
+
  
 test.describe('SauceDemo Login Tests', () => {
  
@@ -12,7 +14,7 @@ const loginPage = new LoginPage(page);
  
 await loginPage.goto();
  
-await loginPage.login('standard_user', 'secret_sauce');
+await loginPage.login(SauceDemoUsers.standard.username, SauceDemoUsers.standard.password);
  
 await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
  
@@ -44,7 +46,7 @@ const loginPage = new LoginPage(page);
  
 await loginPage.goto();
  
-await loginPage.login('locked_out_user', 'secret_sauce');
+await loginPage.login(SauceDemoUsers.locked.username, SauceDemoUsers.locked.password);
  
 const errorText = await loginPage.getErrorMessage();
  

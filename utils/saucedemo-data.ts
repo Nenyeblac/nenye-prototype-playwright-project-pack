@@ -41,6 +41,12 @@ export const APIEndPoints = {
     reqres: process.env.REQRES_API || 'https://reqres.in/api'
 };
 
+// Example for critical configuration
+export const Config = {
+    baseUrl: process.env.BASE_URL!,
+    apiKey: process.env.API_KEY!
+};
+
 export enum SortOption {
     NAME_ASC = 'az',
     NAME_DESC = 'za',

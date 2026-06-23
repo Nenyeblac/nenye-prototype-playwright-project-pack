@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 4
+      "actualWorkers": 1
     },
     "preserveOutput": "always",
     "projects": [
@@ -20,7 +20,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 4
+          "actualWorkers": 1
         },
         "id": "chromium",
         "name": "chromium",
@@ -36,7 +36,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 4
+          "actualWorkers": 1
         },
         "id": "firefox",
         "name": "firefox",
@@ -52,7 +52,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 4
+          "actualWorkers": 1
         },
         "id": "webkit",
         "name": "webkit",
@@ -68,7 +68,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 4
+          "actualWorkers": 1
         },
         "id": "Mobile Chrome",
         "name": "Mobile Chrome",
@@ -84,7 +84,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 4
+          "actualWorkers": 1
         },
         "id": "Mobile Safari",
         "name": "Mobile Safari",
@@ -100,7 +100,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 4
+          "actualWorkers": 1
         },
         "id": "setup",
         "name": "setup",
@@ -116,7 +116,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 4
+          "actualWorkers": 1
         },
         "id": "standard-user",
         "name": "standard-user",
@@ -132,7 +132,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 4
+          "actualWorkers": 1
         },
         "id": "performance-user",
         "name": "performance-user",
@@ -189,27 +189,27 @@
     "shard": null,
     "tags": [],
     "updateSnapshots": "missing",
-    "updateSourceMethod": "patch",
+    "updateSourceMethod": "3way",
     "version": "1.59.1",
     "workers": 4,
     "webServer": null
   },
   "suites": [
     {
-      "title": "saucedemo/regression/cart.spec.ts",
-      "file": "saucedemo/regression/cart.spec.ts",
+      "title": "saucedemo/smoke/saudemo-login.spec.ts",
+      "file": "saucedemo/smoke/saudemo-login.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Cart Item Display Details",
-          "file": "saucedemo/regression/cart.spec.ts",
+          "title": "SauceDemo Login Tests",
+          "file": "saucedemo/smoke/saudemo-login.spec.ts",
           "line": 9,
           "column": 6,
           "specs": [
             {
-              "title": "should diplay correct quantity for each cart item",
+              "title": "successful login with standard user",
               "ok": true,
               "tags": [],
               "tests": [
@@ -219,187 +219,17 @@
                   "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1345,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-05-29T23:11:52.113Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "a8ac7afa0dc3ba6975a4-40e7ca51d53e71e40d7f",
-              "file": "saucedemo/regression/cart.spec.ts",
-              "line": 24,
-              "column": 9
-            },
-            {
-              "title": "should display product descriptions in cart",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 1297,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-05-29T23:11:52.106Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "a8ac7afa0dc3ba6975a4-33754f71daeb19e50271",
-              "file": "saucedemo/regression/cart.spec.ts",
-              "line": 49,
-              "column": 9
-            },
-            {
-              "title": "should diplay correct quantity for each cart item",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 1892,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-05-29T23:11:52.105Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "a8ac7afa0dc3ba6975a4-0646799f2baec4abd9d3",
-              "file": "saucedemo/regression/cart.spec.ts",
-              "line": 24,
-              "column": 9
-            },
-            {
-              "title": "should display product descriptions in cart",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
                   "results": [
                     {
                       "workerIndex": 3,
-                      "parallelIndex": 3,
-                      "status": "passed",
-                      "duration": 1424,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-05-29T23:11:52.103Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "a8ac7afa0dc3ba6975a4-bfc645facb9854aca2be",
-              "file": "saucedemo/regression/cart.spec.ts",
-              "line": 49,
-              "column": 9
-            },
-            {
-              "title": "should diplay correct quantity for each cart item",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 4,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 4047,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-05-29T23:11:54.276Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "a8ac7afa0dc3ba6975a4-af1165d668796b65b5a5",
-              "file": "saucedemo/regression/cart.spec.ts",
-              "line": 24,
-              "column": 9
-            },
-            {
-              "title": "should display product descriptions in cart",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3475,
+                      "duration": 1030,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-29T23:11:54.278Z",
+                      "startTime": "2026-06-23T11:15:09.046Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -407,146 +237,10 @@
                   "status": "expected"
                 }
               ],
-              "id": "a8ac7afa0dc3ba6975a4-edc7283b7d702132deee",
-              "file": "saucedemo/regression/cart.spec.ts",
-              "line": 49,
-              "column": 9
-            },
-            {
-              "title": "should diplay correct quantity for each cart item",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "Mobile Chrome",
-                  "projectName": "Mobile Chrome",
-                  "results": [
-                    {
-                      "workerIndex": 7,
-                      "parallelIndex": 3,
-                      "status": "passed",
-                      "duration": 1012,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-05-29T23:11:56.169Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "a8ac7afa0dc3ba6975a4-e3deeb1b36f233298ad3",
-              "file": "saucedemo/regression/cart.spec.ts",
-              "line": 24,
-              "column": 9
-            },
-            {
-              "title": "should display product descriptions in cart",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "Mobile Chrome",
-                  "projectName": "Mobile Chrome",
-                  "results": [
-                    {
-                      "workerIndex": 6,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 980,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-05-29T23:11:56.170Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "a8ac7afa0dc3ba6975a4-f4024a1f48f9a496a10b",
-              "file": "saucedemo/regression/cart.spec.ts",
-              "line": 49,
-              "column": 9
-            },
-            {
-              "title": "should diplay correct quantity for each cart item",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "Mobile Safari",
-                  "projectName": "Mobile Safari",
-                  "results": [
-                    {
-                      "workerIndex": 8,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 1550,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-05-29T23:11:57.846Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "a8ac7afa0dc3ba6975a4-bf50fa2bba332da040b3",
-              "file": "saucedemo/regression/cart.spec.ts",
-              "line": 24,
-              "column": 9
-            },
-            {
-              "title": "should display product descriptions in cart",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "Mobile Safari",
-                  "projectName": "Mobile Safari",
-                  "results": [
-                    {
-                      "workerIndex": 9,
-                      "parallelIndex": 3,
-                      "status": "passed",
-                      "duration": 1477,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-05-29T23:11:57.865Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "a8ac7afa0dc3ba6975a4-f07533e0d56d83799c95",
-              "file": "saucedemo/regression/cart.spec.ts",
-              "line": 49,
-              "column": 9
+              "id": "1511cb921e679432a97c-c911c46c951f01739f83",
+              "file": "saucedemo/smoke/saudemo-login.spec.ts",
+              "line": 11,
+              "column": 5
             }
           ]
         }
@@ -555,9 +249,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-05-29T23:11:51.761Z",
-    "duration": 7962.389,
-    "expected": 10,
+    "startTime": "2026-06-23T11:15:08.297Z",
+    "duration": 2129.916000008583,
+    "expected": 1,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
